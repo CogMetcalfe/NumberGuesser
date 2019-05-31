@@ -148,10 +148,23 @@ public class NumberGuesser {
 		while(loop) {
 			this.upper=gameUpper;
 			this.lower=gameLower;
+			if(upper==lower) {
+				System.out.println("Your number must be " + upper + " because it is the only possible number");
+				return;
+			}
 			guess = readConsoleInt("Enter a number for the guesser to start at", lower, upper);
 			//System.out.println("Is your number Higher or Lower than " + guess + " ? [Higher/Lower/Correct]");
 			String userInput="";
 			while(true) {
+				if(upper<=lower) {
+					if(upper==lower) {
+						System.out.println("Then the number can only be " + guess);
+						break;
+					}else {
+						System.out.println("You have given me incorrect information or your number is not within the bounds set.");
+						break;
+					}
+				}
 				System.out.println("My Guess is " + guess);
 				System.out.println("Is my guess Correct? Or is your number Higher or Lower?[Higher/Lower/Correct]");
 				boolean possible=false;
@@ -175,15 +188,6 @@ public class NumberGuesser {
 				}
 				nextGuess(userInput);
 				//System.out.println("Upper: " + upper + ", Lower: " + lower);
-				if(upper<=lower) {
-					if(upper==lower) {
-						System.out.println("Then the number can only be " + guess);
-						break;
-					}else {
-						System.out.println("You have given me incorrect information or your number is not within the bounds set.");
-						break;
-					}
-				}
 			}
 			if(loop) {
 				boolean understandResponse=false;
