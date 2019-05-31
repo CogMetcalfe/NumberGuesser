@@ -148,22 +148,9 @@ public class NumberGuesser {
 		while(loop) {
 			this.upper=gameUpper;
 			this.lower=gameLower;
-			String userInput="";
-			//FIX U IDYOT
-			boolean intGiven=false;
-			while(!intGiven) {
-				System.out.println("Enter a Number for the guesser start from between " + gameLower + " and " + gameUpper + " inclusive");
-				intGiven=true;
-				try{
-					userInput = GodScanner.getScan().nextLine();
-					guess= Integer.parseInt(userInput);
-				}catch(Exception e) {
-					intGiven = false;
-					System.out.println("\"" + userInput + "\" is not recognised as an integer number.");
-				}
-			}
+			guess = readConsoleInt("Enter a number for the guesser to start at", lower, upper);
 			//System.out.println("Is your number Higher or Lower than " + guess + " ? [Higher/Lower/Correct]");
-			
+			String userInput="";
 			while(true) {
 				System.out.println("My Guess is " + guess);
 				System.out.println("Is my guess Correct? Or is your number Higher or Lower?[Higher/Lower/Correct]");

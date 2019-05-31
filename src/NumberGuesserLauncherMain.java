@@ -4,9 +4,9 @@ import event.*;
 public class NumberGuesserLauncherMain {
 	public static void main(String[] args){
 		DynamicMenu menu = new DynamicMenu();
-		menu.addChoice(new Choice("1) Auto Edition", "1", new StartGameEvent(0)));
-		menu.addChoice(new Choice("2) Standard Edition", "2", new StartGameEvent(1)));
-		menu.addChoice(new Choice("Exit", "exit",new BackEvent()));
+		menu.addChoice(new Choice("1) Auto Edition", "1", new StartGameEvent(0)).addInput("1) auto edition").addInput("auto").addInput("auto edition"));
+		menu.addChoice(new Choice("2) Standard Edition", "2", new StartGameEvent(1)).addInput("2) standard edition").addInput("standard").addInput("standard edition"));
+		menu.addChoice(new Choice("3) Exit", "exit",new BackEvent()).addInput("3) exit").addInput("3").addInput("stop").addInput("quit").addInput("close"));
 		
 		menu.runMenu();
 		
